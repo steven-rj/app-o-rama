@@ -16,6 +16,7 @@ def display_menu(username):
 
 
 def get_username():
+    
     username = input("Enter your name: ")
     return username
 
@@ -27,16 +28,16 @@ def run_app(choice):
 
 
 def clear_screen():
+
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():
 
+    clear_screen()
     username = get_username()
     display_menu(username)
 
-
-#test comment to test commit
 
 if __name__ == "__main__":
     main()
