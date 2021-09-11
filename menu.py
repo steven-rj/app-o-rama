@@ -1,15 +1,14 @@
 import os
 from phrase_hunter import game as phrase_hunt
 
-def display_menu(username):
+def display_menu():
     
-    username = username
     choice = ""
     choices = ['q', '1']
 
     while choice not in choices:
         clear_screen()
-        print(f"Hello {username}! Below are the following apps.")
+        print(f"Below are the following apps.")
         print("Q to quit")
         print('1 for Phrase Hunter')
         choice = input("Press the key to the corresponding app you want, then pess Enter: ").casefold()
@@ -40,8 +39,7 @@ def clear_screen():
 def main():
 
     clear_screen()
-    username = get_username()
-    display_menu(username)
+    display_menu()
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import random
 import sys
+import menu
 
 from .phrase import Phrase
 
@@ -151,4 +152,4 @@ class Game:
             game = Game()
             game.start()
         elif replay == "n":
-            sys.exit()
+            menu.main()
