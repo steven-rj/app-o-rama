@@ -1,16 +1,20 @@
 import os
 from phrase_hunter import game as phrase_hunt
+from number_guess import number_guess
 
 def display_menu():
     
     choice = ""
-    choices = ['q', '1']
+    choices = ['q', '1', '2']
 
     while choice not in choices:
         clear_screen()
+        print("Welcome to App-o-Rama!!")
         print(f"Below are the following apps.")
         print("Q to quit")
         print('1 for Phrase Hunter')
+        print('2 for Number Guess')
+        print()
         choice = input("Press the key to the corresponding app you want, then pess Enter: ").casefold()
 
     run_app(choice)
@@ -24,11 +28,14 @@ def get_username():
 
 def run_app(choice):
     
+    clear_screen()
     if choice == 'q':
         exit()
     elif choice == '1':
         phrase_hunter = phrase_hunt.Game()
         phrase_hunter.start()
+    elif choice == '2':
+        number_guess.main()
 
 
 def clear_screen():
