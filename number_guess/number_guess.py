@@ -1,37 +1,48 @@
-import menu
+#import menu
 import random
 
+class Game:
+    
+    def __init__(self):
 
-def main():
+        self.secret = random.randint(1, 20)
+        self.chance = 0
+        self.guesses = []
 
-    print()
-    print('Welcome to Number Guess')
-    end = int(input("You would like to guess a number between 1 and, what?: "))
-    num_chances = int(input("And how many chances would you like?: "))
-    chance = 0
-    cont = ''
+    def main(self):
 
-    secret = random.randint(1, end-1)
-    guess = 0
+        self.welcome()
 
-    while True:
-        
-        guess = int(input("Enter a guess: "))
-        chance += 1
+        while True:
 
-        if guess == secret:
-            print(f"Wow you got it! The secret number was {secret}, which you got in {chance} guesses!")
-            break
-        elif guess != secret and chance <= num_chances:
-            print(f"{guess} was not it!")
-            continue
-        elif guess != secret and chance >= num_chances:
-            print(f"Sorry! The secret number was {secret}")
+            guess = self.get_guess()
+            if guess == 2:
+                print("You won!")
             break
 
-    while cont != 'n' or 'y':
-        cont = input("Press y to play again, n to quit: ").lower()
-        if cont == 'y':
-            main()
-        else:
-            menu.display_menu()
+    def welcome(self):
+        print()
+        print('Welcome to Number Guess!')
+        print("You'll try to guess a number between 1 and 20.")
+        print()
+
+    def get_guess(self):
+
+        guess = 0
+
+        while guess < 1 or guess > 20:
+            try:
+                guess = int(input("Enter a guess between 1 and 20: "))
+                if guess in self.guesses:
+                    print()
+                    print(f"You've already guessed {guess}!")
+                    print(f"Past Guesses: {self.guesses}")
+            except ValueError:
+                print("You didn't enter a number!")
+
+        return guess
+
+
+if __name__ == "__main__":
+    game = Game()
+    game.main()
