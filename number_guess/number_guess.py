@@ -1,13 +1,14 @@
-#import menu
+import menu
 import random
 
 class Game:
     
     def __init__(self):
 
-        self.secret = random.randint(1, 20)
         self.chance = 0
         self.guesses = []
+        self.guess = 0
+
 
     def main(self):
 
@@ -16,9 +17,22 @@ class Game:
         while True:
 
             guess = self.get_guess()
-            if guess == 2:
+            secret = self.get_secret()
+
+            if guess == secret:
                 print("You won!")
-            break
+                print(f"It took {self.get_chances()} guesses to guess {secret}")
+                break
+            elif guess != secret:
+                if self.get_chances() > 5:
+                    print(f"Game Over! The secret was {secret}")
+                    break
+                else:
+                    self.increment_chances()
+                    guess = self.get_guess()
+
+
+
 
     def welcome(self):
         print()
@@ -26,21 +40,38 @@ class Game:
         print("You'll try to guess a number between 1 and 20.")
         print()
 
+
     def get_guess(self):
 
-        guess = 0
-
-        while guess < 1 or guess > 20:
+        while self.guess < 1 or self.guess > 20:
             try:
-                guess = int(input("Enter a guess between 1 and 20: "))
-                if guess in self.guesses:
+                self.guess = int(input("Enter a guess between 1 and 20: "))
+                if self.guess in self.guesses:
                     print()
-                    print(f"You've already guessed {guess}!")
+                    print(f"You've already guessed {self.guess}!")
                     print(f"Past Guesses: {self.guesses}")
             except ValueError:
                 print("You didn't enter a number!")
+            break
 
-        return guess
+        self.guesses.append(self.guess)
+
+        return self.guess
+
+
+    def get_secret(self):
+
+        return random.randint(1, 20)
+
+
+    def increment_chances(self):
+
+        self.chance += 1
+
+
+    def get_chances(self):
+
+        return self.chance
 
 
 if __name__ == "__main__":

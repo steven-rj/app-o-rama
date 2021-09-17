@@ -20,12 +20,6 @@ def display_menu():
     run_app(choice)
 
 
-def get_username():
-    
-    username = input("Enter your name: ")
-    return username
-
-
 def run_app(choice):
     
     clear_screen()
@@ -35,7 +29,8 @@ def run_app(choice):
         phrase_hunter = phrase_hunt.Game()
         phrase_hunter.start()
     elif choice == '2':
-        number_guess.main()
+        num_guess = number_guess.Game()
+        num_guess.main()
 
 
 def clear_screen():
