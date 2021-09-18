@@ -1,4 +1,3 @@
-import menu
 import random
 
 class Game:
@@ -14,25 +13,29 @@ class Game:
 
         self.welcome()
 
-        while True:
+        secret = self.get_secret()
+        print(f"DEBUG: secret = {secret}")
 
-            guess = self.get_guess()
-            secret = self.get_secret()
+        while not self.game_over():
 
-            if guess == secret:
+            self.get_guess()
+
+            if self.guess == secret:
                 print("You won!")
                 print(f"It took {self.get_chances()} guesses to guess {secret}")
                 break
-            elif guess != secret:
-                if self.get_chances() > 5:
+
+            elif self.guess != secret:
+                self.increment_chances()
+                if self.game_over():
+                    print()
                     print(f"Game Over! The secret was {secret}")
                     break
+                
                 else:
-                    print(f"Sorry, {guess} isn't it!")
-                    self.increment_chances()
-                    guess = self.get_guess()
-
-
+                    print()
+                    print(f"Sorry, {self.guess} isn't it!")
+                    print(f"Chances left: {5-self.chance}")
 
 
     def welcome(self):
@@ -44,22 +47,43 @@ class Game:
 
     def get_guess(self):
 
-        self.guess = 0
+        print()
+        self.guess = input("Enter your guess: ")
+        while not self.validate_guess():
+            print()
+            self.guess = input("Enter your guess: ")
 
-        while self.guess < 1 or self.guess > 20:
-            try:
-                self.guess = int(input("Enter a guess between 1 and 20: "))
-                if self.guess in self.guesses:
-                    print()
-                    print(f"You've already guessed {self.guess}!")
-                    print(f"Past Guesses: {self.guesses}")
-            except ValueError:
-                print("You didn't enter a number!")
-            break
+        return self.guess
+
+
+    def validate_guess(self):
+
+        try:
+            self.guess = int(self.guess)
+        except ValueError:
+            print("You didn't enter a number!")
+            print()
+            return False
+
+        if self.guess > 20:
+            print("Your guess must be less than 20")
+            print()
+            return False
+
+        elif self.guess < 1:
+            print("Your guess must be greater than 1")
+            print()
+            return False
 
         self.guesses.append(self.guess)
 
-        return self.guess
+        if self.guess in self.guesses:
+            print(f"You already guessed {self.guess}!")
+            print(f"Previous guesses: {self.guesses}")
+            print()
+            return False
+
+        return True
 
 
     def get_secret(self):
@@ -75,6 +99,11 @@ class Game:
     def get_chances(self):
 
         return self.chance
+
+
+    def game_over(self):
+
+        return self.chance > 5
 
 
 if __name__ == "__main__":
