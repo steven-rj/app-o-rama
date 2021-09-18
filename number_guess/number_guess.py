@@ -28,6 +28,7 @@ class Game:
                     print(f"Game Over! The secret was {secret}")
                     break
                 else:
+                    print(f"Sorry, {guess} isn't it!")
                     self.increment_chances()
                     guess = self.get_guess()
 
@@ -42,6 +43,8 @@ class Game:
 
 
     def get_guess(self):
+
+        self.guess = 0
 
         while self.guess < 1 or self.guess > 20:
             try:
