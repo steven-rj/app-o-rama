@@ -4,7 +4,7 @@ class Game:
     
     def __init__(self):
 
-        self.chance = 0
+        self.chance = 1
         self.guesses = []
         self.guess = 0
 
@@ -75,13 +75,13 @@ class Game:
             print()
             return False
 
-        self.guesses.append(self.guess)
-
         if self.guess in self.guesses:
             print(f"You already guessed {self.guess}!")
             print(f"Previous guesses: {self.guesses}")
             print()
             return False
+
+        self.guesses.append(self.guess)
 
         return True
 
