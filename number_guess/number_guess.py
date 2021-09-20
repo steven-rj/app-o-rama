@@ -35,7 +35,7 @@ class Game:
                 
                 else:
                     print()
-                    print(f"Sorry, {self.guess} isn't it!")
+                    print(f"Sorry, it isn't {self.guess}!")
                     print(f"Chances left: {5-self.chance}")
 
         self.replay()
@@ -44,6 +44,7 @@ class Game:
     def welcome(self):
         print()
         print('Welcome to Number Guess!')
+        print()
         print("You'll try to guess a number between 1 and 20.")
         print()
 
