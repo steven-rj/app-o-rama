@@ -1,4 +1,5 @@
 import random
+import menu
 
 class Game:
     
@@ -36,6 +37,8 @@ class Game:
                     print()
                     print(f"Sorry, {self.guess} isn't it!")
                     print(f"Chances left: {5-self.chance}")
+
+        self.replay()
 
 
     def welcome(self):
@@ -104,6 +107,20 @@ class Game:
     def game_over(self):
 
         return self.chance > 5
+
+
+    def replay(self):
+
+        replay = ""
+        while replay != "y" and replay != "n":
+            replay = input("\nPlay again? [y/n] >> ").lower()
+        
+        if replay == "y":
+            menu.clear_screen()
+            game = Game()
+            game.main()
+        elif replay == "n":
+            menu.main()
 
 
 if __name__ == "__main__":
