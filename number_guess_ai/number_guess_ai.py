@@ -6,7 +6,7 @@ class Game():
     def __init__(self):
         
         self.guesses = 0
-        self.guess = 10
+        self.guess = 25
         self.correct = 'n'
         self.low = 0
         self.high = 50
@@ -16,8 +16,10 @@ class Game():
 
         self.display_welcome()
 
+        correct = 'n'
+
         while correct != 'y':
-            correct = input(f"Is your guess {self.guess}? [y/n]").lower()
+            correct = input(f"Is your guess {self.guess}? [y/n] ").lower()
             
             if correct == 'y':
                 break
@@ -25,9 +27,11 @@ class Game():
                 high_low = self.check_high_low()
 
                 if high_low == 'h':
-                    pass
+                    self.increase_guess(self.guess)
                 else:
-                    pass
+                    self.decrease_guess(self.guess)
+
+        print(f"I bet your guess is {self.guess}!!")
             
 
 
@@ -52,14 +56,14 @@ class Game():
 
         self.set_low(number)
 
-        return (self.get_high() - self.get_low()) // 2
+        self.set_guess((self.get_high() - self.get_low()) // 2)
 
     
     def decrease_guess(self, number):
 
         self.set_high(number)
 
-        return (self.get_high() - self.get_low()) // 2
+        self.set_guess((self.get_high() - self.get_low()) // 2)
 
     
     def get_guess(self):
