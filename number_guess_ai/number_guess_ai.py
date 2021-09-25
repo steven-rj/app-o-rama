@@ -55,15 +55,21 @@ class Game():
     def increase_guess(self, number):
 
         self.set_low(number)
+        minimum = self.get_low() + 1
+        maximum = self.get_high()
+        self.set_guess(minimum + ((maximum - minimum) // 2))
 
-        self.set_guess((self.get_high() - self.get_low()) // 2)
+        return None
 
     
     def decrease_guess(self, number):
 
         self.set_high(number)
+        maximum = self.get_high() - 1
+        minimum = self.get_low()
+        self.set_guess(minimum + (maximum - minimum) // 2)
 
-        self.set_guess((self.get_high() - self.get_low()) // 2)
+        return None
 
     
     def get_guess(self):
