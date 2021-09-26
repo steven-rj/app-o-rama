@@ -4,7 +4,10 @@ from number_guess import number_guess
 from number_guess_ai import number_guess_ai
 
 def display_menu():
-    
+    """
+    Displays menu for games.
+    Gets input for selection from user, sends to run_app()
+    """
     choice = ""
     choices = ['q', '1', '2', '3']
 
