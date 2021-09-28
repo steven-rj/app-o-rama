@@ -6,7 +6,7 @@ from number_guess_ai import number_guess_ai
 def display_menu():
     """
     Displays menu for games.
-    Gets input for selection from user, sends to run_app()
+    Gets string input for selection from user, sends to run_app()
     """
     choice = ""
     choices = ['q', '1', '2', '3']
@@ -26,6 +26,9 @@ def display_menu():
 
 
 def run_app(choice):
+    """
+    Gets string input from display menu, runs appropriate instance of app
+    """
     
     clear_screen()
     if choice == 'q':
@@ -42,12 +45,16 @@ def run_app(choice):
 
 
 def clear_screen():
-
+    """
+    Clears the terminal window
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def main():
-
+    """
+    Runs display_menu() 
+    """
     clear_screen()
     display_menu()
 
