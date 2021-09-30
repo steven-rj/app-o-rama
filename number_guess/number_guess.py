@@ -42,6 +42,9 @@ class Game:
 
 
     def welcome(self):
+        """
+        Prints welcome and game instructions.
+        """
         print()
         print('Welcome to Number Guess!')
         print()
@@ -50,7 +53,10 @@ class Game:
 
 
     def get_guess(self):
-
+        """
+        String input from player for guess.
+        Checks string against validation method, keeps repeating until validate one entered.
+        """
         print()
         self.guess = input("Enter your guess: ")
         while not self.validate_guess():
@@ -61,7 +67,13 @@ class Game:
 
 
     def validate_guess(self):
-
+        """
+        Tries to convert string guess to int first.
+        Then checks guess ranges from 1 to 20.
+        Then checks if guess has already been guessed.
+        Then appends that guess to the list of guesses.
+        Last returns True is the guess was valid.
+        """
         try:
             self.guess = int(self.guess)
         except ValueError:
