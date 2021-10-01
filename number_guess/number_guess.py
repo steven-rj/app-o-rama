@@ -103,27 +103,39 @@ class Game:
 
 
     def get_secret(self):
-
+        """
+        Generates a random integer for the player to guess
+        """
         return random.randint(1, 20)
 
 
     def increment_chances(self):
-
+        """
+        Called to increment self.chance after the player makes a valid guess
+        """
         self.chance += 1
 
 
     def get_chances(self):
-
+        """
+        Called to return the value held by self.chance
+        """
         return self.chance
 
 
     def game_over(self):
-
+        """
+        Returns True if player makes more than 5 guesses
+        """
         return self.chance > 5
 
 
     def replay(self):
-
+        """
+        Asks if player wants to play again.
+        Calls shell's main function is no,
+        if yes, clears the screen and creates a new game instance
+        """
         replay = ""
         while replay != "y" and replay != "n":
             replay = input("\nPlay again? [y/n] >> ").lower()
