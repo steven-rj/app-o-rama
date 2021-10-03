@@ -4,7 +4,9 @@ import menu
 class Game():
 
     def __init__(self):
-        
+        """
+        Instantiate class vars
+        """
         self.guesses = 0
         self.guess = 25
         self.correct = 'n'
@@ -73,32 +75,44 @@ class Game():
 
     
     def get_guess(self):
-
+        """
+        Returns the value of self.guess
+        """
         return self.guess
 
     
     def set_guess(self, number):
-
+        """
+        Sets the value of self.guess to the int passed in        
+        """
         self.guess = number
 
 
     def set_high(self, number):
-    
+        """
+        Sets the value of the maximum guess to the int passed in
+        """
         self.high = number
 
 
     def set_low(self, number):
-
+        """
+        Sets the value of the minimum guess to the int passed in
+        """
         self.low = number
 
 
     def get_high(self):
-
+        """
+        Returns the value of the max guess
+        """
         return self.high
 
 
     def get_low(self):
-
+        """
+        Returns self.low value
+        """
         return self.low
 
 
