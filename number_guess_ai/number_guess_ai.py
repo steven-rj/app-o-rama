@@ -24,8 +24,10 @@ class Game():
             correct = input(f"Is your guess {self.guess}? [y/n] ").lower()
             
             if correct == 'y':
+                print(f"I guessed it in {self.guesses} guesses!")
                 break
             elif correct == 'n':
+                self.guesses += 1
                 high_low = self.check_high_low()
 
                 if high_low == 'h':
