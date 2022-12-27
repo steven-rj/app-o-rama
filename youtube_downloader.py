@@ -2,6 +2,7 @@ from pytube import YouTube
 
 import main_menu
 
+
 def download(url):
     
     yt_object = YouTube(url)
@@ -13,6 +14,7 @@ def download(url):
         print(f"Error downloading {url}!")
     
     print(f"{yt_object.title} downloaded successfully!")
+
 
 def main():
 

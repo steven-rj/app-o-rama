@@ -3,6 +3,7 @@ import time
 import os
 
 import youtube_downloader as yt
+import pdf_speech as pdf
 
 
 def clear_screen():
@@ -25,7 +26,8 @@ def display_main_menu():
     if app_num == 1:
         print("\nLoading PDF-to-Speech..\n")
         time.sleep(1)
-        #display_diagnostics_menu()
+        clear_screen()
+        pdf.main()
     elif app_num == 2:
         print("\nLoading YouTube Downloader..\n")
         time.sleep(1)
