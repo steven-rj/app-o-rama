@@ -1,4 +1,4 @@
 import main_menu
 
 def main():
-    pass
+    print("Bigclipboard implementation coming soon.")
