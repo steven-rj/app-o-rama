@@ -1,6 +1,6 @@
-from pytube import YouTube
-
 import main_menu
+
+from pytube import YouTube
 
 
 def download(url):

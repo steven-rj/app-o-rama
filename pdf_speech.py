@@ -1,7 +1,8 @@
+import main_menu
+
 import pyttsx3
 import PyPDF2
 
-import main_menu
 
 def pdf_to_mp3(file):
 

@@ -1,8 +1,8 @@
 def organize_apps():
 
-    apps = sorted([("Big Clipboard", "clipb.main()"),
-            ("YouTube Downloader", "yt.main()"),
-            ("PDF-to-Speech", "pdf.main()")])
+    apps = sorted([("QR Code Generator", "qr.main()"),
+                    ("YouTube Downloader", "yt.main()"),
+                    ("PDF-to-Speech", "pdf.main()")])
 
 
     sorted_apps_list = [[0, ("Exit Program", "sys.exit()")]]

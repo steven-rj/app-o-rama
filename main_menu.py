@@ -5,7 +5,7 @@ import os
 import organize_apps as apps
 import youtube_downloader as yt
 import pdf_speech as pdf
-import bigclipboard as clipb
+import qr_generator as qr
 
 
 def clear_screen():
