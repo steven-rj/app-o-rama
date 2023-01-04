@@ -1,6 +1,7 @@
 import main_menu
 
 import qrcode
+import os.path
 
 
 def generate_code(text, path):
@@ -13,7 +14,13 @@ def generate_code(text, path):
     qr.add_data(text)
     qr.make(fit=True)
     image = qr.make_image(fill_color = "black", back_color = "white")
-    image.save(path + "\qrcode.png")
+    file = path + "\qrcode.png"
+    image.save(file)
+    if os.path.exists(file):
+        print("QR image created successfully!")
+    else:
+        print("Error creating QR image!")
+    
 
 
 def get_download_path():
@@ -27,7 +34,6 @@ def main():
     text = input("Enter text to have generated into a QR code: ")
     path = get_download_path()
     generate_code(text, path)
-    print(f"QR code created successfully at {path}")
     main_menu.display_main_menu()
 
 if __name__ == "__main__":
