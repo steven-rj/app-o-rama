@@ -17,7 +17,11 @@ def download(url):
 
 
 def main():
-
+    """
+    DOCSTRING: asks user for a YouTube URL as string,
+    creates a YouTube object from it with its highest resolution,
+    prints validation message if successful.
+    """
     print("YouTube Downloader v1.0")
     url = input("Enter YouTube url to download: ")
     download(url)
